@@ -178,4 +178,17 @@ public class GildedRoseTest {
     assertEquals(0, item.quality);
     assertEquals(-1, item.sellIn);
   }
+  @Test
+  public void should_return_item_quality_48_And_sellIn_Minus1_when_call_updateQuality_with_quality_46_And_sellIn_0_And_itemName_is_AgedBrie(){
+    Item[] items = new Item[] { new Item("Aged Brie",
+      0, 46) };
+    GildedRose app = new GildedRose(items);
+    app.updateQuality();
+    Item item = Arrays.asList(items).stream().
+      filter(e->e.name.equals("Aged Brie")).
+      findFirst().orElseThrow(()->new RuntimeException("没有找到"));
+    assertEquals("Aged Brie", item.name);
+    assertEquals(48, item.quality);
+    assertEquals(-1, item.sellIn);
+  }
 }

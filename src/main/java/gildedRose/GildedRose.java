@@ -28,12 +28,12 @@ public class GildedRose {
               incrementQuality(item);
             }
           }
+
         }
       }
       if (!isSulfuras(item)) {
         decreaseSellIn(item);
       }
-
       if (isSellInSmallerThanZero(item)) {
         if (!isAgedBrie(item)) {
           decrementQuality(item);
@@ -74,7 +74,6 @@ public class GildedRose {
   private boolean isBackstagePass(Item item) {
     return item.name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT);
   }
-
   private boolean isSulfuras(Item item) {
     return item.name.equals(SULFURAS_HAND_OF_RAGNAROS);
   }

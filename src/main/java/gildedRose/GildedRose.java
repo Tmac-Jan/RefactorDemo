@@ -16,7 +16,7 @@ public class GildedRose {
   public void updateQuality() {
     for (int i = 0; i < items.length; i++) {
       if (!isAgedBrie(items[i]) && !isBackstagePass(items[i])) {
-          decrementQuality(items[i]);
+        decrementQuality(items[i]);
       } else {
         if (items[i].quality < MAX_QUALITY) {
           items[i].quality = items[i].quality + 1;
@@ -34,12 +34,12 @@ public class GildedRose {
         items[i].sellIn = items[i].sellIn - 1;
       }
 
-      if (items[i].sellIn < 0) {
+      if (isSellInSmallerThanZero(items[i])) {
         if (!isAgedBrie(items[i])) {
           if (!isBackstagePass(items[i])) {
-              decrementQuality(items[i]);
+            decrementQuality(items[i]);
           } else {
-            items[i].quality = items[i].quality - items[i].quality;
+            setQualityToZero(items[i]);
           }
         } else {
           incrementQuality(items[i]);
@@ -48,12 +48,22 @@ public class GildedRose {
     }
   }
 
+  private void setQualityToZero(Item item) {
+    item.quality = 0;
+  }
+
+  private boolean isSellInSmallerThanZero(Item item) {
+    return item.sellIn < 0;
+  }
+
   private boolean isSellInSmallerThanSix(Item item) {
     return item.sellIn < 6;
   }
+
   private boolean isSellInSmallerThanEleven(Item item) {
     return item.sellIn < 11;
   }
+
   private boolean isBackstagePass(Item item) {
     return item.name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT);
   }
@@ -65,6 +75,7 @@ public class GildedRose {
   private boolean isAgedBrie(Item item) {
     return item.name.equals(AGED_BRIE);
   }
+
   private void decrementQuality(Item item) {
     if (item.quality > MIN_QUALITY) {
       if (!isSulfuras(item)) {
@@ -72,6 +83,7 @@ public class GildedRose {
       }
     }
   }
+
   private void incrementQuality(Item item) {
     if (item.quality < MAX_QUALITY) {
       item.quality = item.quality + 1;

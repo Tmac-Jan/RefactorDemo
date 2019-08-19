@@ -22,6 +22,7 @@ public class Item {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
+        this.itemStrategy = ItemStrategyBeanFactory.getItemStrategy(name);
     }
 
     public String getName() {
@@ -30,6 +31,7 @@ public class Item {
 
     public void setName(String name) {
         this.name = name;
+        this.itemStrategy = ItemStrategyBeanFactory.getItemStrategy(name);
     }
 
     public int getSellIn() {

@@ -17,7 +17,7 @@ public class ItemStrategyBeanFactory {
             case GildedRose.SULFURAS_HAND_OF_RAGNAROS:
                 return new SulfurasStrategy();
             default:
-                throw  new RuntimeException("没有找到！");
+              return  new OtherItemStrategy();
         }
     }
 }

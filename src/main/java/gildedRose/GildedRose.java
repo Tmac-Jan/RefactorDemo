@@ -15,35 +15,7 @@ public class GildedRose {
 
   public void updateQuality() {
     for (Item item : items) {
-      if (isNotAgeBrieAndNotBackstagePass(item)) {
-        decrementQuality(item);
-      } else {
-        if (item.quality < MAX_QUALITY) {
-          item.quality = item.quality + 1;
-          if (isBackstagePass(item)) {
-            if (isSellInSmallerThanEleven(item)) {
-              incrementQuality(item);
-            }
-            if (isSellInSmallerThanSix(item)) {
-              incrementQuality(item);
-            }
-          }
-
-        }
-      }
-      if (!isSulfuras(item)) {
-        decreaseSellIn(item);
-      }
-      if (isSellInSmallerThanZero(item)) {
-        if (!isAgedBrie(item)) {
-          decrementQuality(item);
-          if (isBackstagePass(item)) {
-            setQualityToZero(item);
-          }
-        } else {
-          incrementQuality(item);
-        }
-      }
+      item.getItemStrategy().updateQuality(item);
     }
   }
 

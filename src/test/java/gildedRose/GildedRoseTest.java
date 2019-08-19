@@ -78,7 +78,6 @@ public class GildedRoseTest {
     assertEquals(50, item.quality);
     assertEquals(-1, item.sellIn);
   }
-
   @Test
   public void should_return_item_quality_10_And_sellIn_1_when_call_updateQuality_with_quality_10_And_sellIn_1_And_itemName_is_Sulfuras(){
     Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 1, 10) };
@@ -91,4 +90,17 @@ public class GildedRoseTest {
     assertEquals(10, item.quality);
     assertEquals(1, item.sellIn);
   }
+  @Test
+  public void should_return_item_quality_11_And_sellIn_10_when_call_updateQuality_with_quality_10_And_sellIn_11_And_itemName_is_Backstage(){
+    Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 11, 10) };
+    GildedRose app = new GildedRose(items);
+    app.updateQuality();
+    Item item = Arrays.asList(items).stream().
+      filter(e->e.name.equals("Backstage passes to a TAFKAL80ETC concert")).
+      findFirst().orElseThrow(()->new RuntimeException("没有找到"));
+    assertEquals("Backstage passes to a TAFKAL80ETC concert", item.name);
+    assertEquals(11, item.quality);
+    assertEquals(10, item.sellIn);
+  }
+
 }

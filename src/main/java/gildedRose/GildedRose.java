@@ -21,10 +21,10 @@ public class GildedRose {
         if (items[i].quality < MAX_QUALITY) {
           items[i].quality = items[i].quality + 1;
           if (isBackstagePass(items[i])) {
-            if (items[i].sellIn < 11) {
+            if (isSellInSmallerThanEleven(items[i])) {
               incrementQuality(items[i]);
             }
-            if (items[i].sellIn < 6) {
+            if (isSellInSmallerThanSix(items[i])) {
               incrementQuality(items[i]);
             }
           }
@@ -48,6 +48,12 @@ public class GildedRose {
     }
   }
 
+  private boolean isSellInSmallerThanSix(Item item) {
+    return item.sellIn < 6;
+  }
+  private boolean isSellInSmallerThanEleven(Item item) {
+    return item.sellIn < 11;
+  }
   private boolean isBackstagePass(Item item) {
     return item.name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT);
   }

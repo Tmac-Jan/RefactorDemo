@@ -14,7 +14,7 @@ public class GildedRose {
             if (!items[i].name.equals(AGED_BRIE)
                     && !isBackstagePass(items[i])) {
                 if (items[i].quality > 0) {
-                    if (!items[i].name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
+                    if (!isSulfuras(items[i])) {
                         items[i].quality = items[i].quality - 1;
                     }
                 }
@@ -38,7 +38,7 @@ public class GildedRose {
                 }
             }
 
-            if (!items[i].name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
+            if (!isSulfuras(items[i])) {
                 items[i].sellIn = items[i].sellIn - 1;
             }
 
@@ -46,7 +46,7 @@ public class GildedRose {
                 if (!items[i].name.equals(AGED_BRIE)) {
                     if (!isBackstagePass(items[i])) {
                         if (items[i].quality > 0) {
-                            if (!items[i].name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
+                            if (!isSulfuras(items[i])) {
                                 items[i].quality = items[i].quality - 1;
                             }
                         }
@@ -64,6 +64,9 @@ public class GildedRose {
 
     private boolean isBackstagePass(Item item) {
         return item.name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT);
+    }
+    private boolean isSulfuras(Item item){
+      return item.name.equals(SULFURAS_HAND_OF_RAGNAROS);
     }
 
 }

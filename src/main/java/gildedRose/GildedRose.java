@@ -36,9 +36,8 @@ public class GildedRose {
 
       if (isSellInSmallerThanZero(items[i])) {
         if (!isAgedBrie(items[i])) {
-          if (!isBackstagePass(items[i])) {
-            decrementQuality(items[i]);
-          } else {
+          decrementQuality(items[i]);
+          if (isBackstagePass(items[i])) {
             setQualityToZero(items[i]);
           }
         } else {

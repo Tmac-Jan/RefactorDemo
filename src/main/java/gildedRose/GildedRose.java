@@ -15,18 +15,20 @@ public class GildedRose {
 
   public void updateQuality() {
     for (int i = 0; i < items.length; i++) {
-      if (!isAgedBrie(items[i]) && !isBackstagePass(items[i])) {
+      if (isNotAgeBrieAndNotBackstagePass(items[i])) {
         decrementQuality(items[i]);
       } else {
         if (items[i].quality < MAX_QUALITY) {
           items[i].quality = items[i].quality + 1;
           if (isBackstagePass(items[i])) {
+
             if (isSellInSmallerThanEleven(items[i])) {
               incrementQuality(items[i]);
             }
             if (isSellInSmallerThanSix(items[i])) {
               incrementQuality(items[i]);
             }
+
           }
         }
       }
@@ -45,6 +47,10 @@ public class GildedRose {
         }
       }
     }
+  }
+
+  private boolean isNotAgeBrieAndNotBackstagePass(Item item) {
+    return !isAgedBrie(item) && !isBackstagePass(item);
   }
 
   private void setQualityToZero(Item item) {

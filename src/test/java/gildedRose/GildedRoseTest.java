@@ -153,4 +153,17 @@ public class GildedRoseTest {
     assertEquals(50, item.quality);
     assertEquals(4, item.sellIn);
   }
+  @Test
+  public void should_return_item_quality_0_And_sellIn_Minus1_when_call_updateQuality_with_quality_48_And_sellIn_0_And_itemName_is_Backstage(){
+    Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert",
+      0, 48) };
+    GildedRose app = new GildedRose(items);
+    app.updateQuality();
+    Item item = Arrays.asList(items).stream().
+      filter(e->e.name.equals("Backstage passes to a TAFKAL80ETC concert")).
+      findFirst().orElseThrow(()->new RuntimeException("没有找到"));
+    assertEquals("Backstage passes to a TAFKAL80ETC concert", item.name);
+    assertEquals(0, item.quality);
+    assertEquals(-1, item.sellIn);
+  }
 }

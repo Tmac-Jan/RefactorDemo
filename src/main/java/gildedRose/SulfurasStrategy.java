@@ -10,9 +10,6 @@ package gildedRose;
 public class SulfurasStrategy extends ItemStrategy {
     @Override
     public void updateQuality(Item item) {
-        item.setQuality(item.getQuality() -1);
-        if (item.getSellIn() < GildedRose.MIN_QUALITY) {
-            item.setQuality(item.getQuality() -1);
-        }
+
     }
 }

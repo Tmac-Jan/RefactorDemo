@@ -14,6 +14,8 @@ public class ItemStrategyBeanFactory {
                 return new AgedBrieStrategy();
             case GildedRose.BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT:
                 return new BackstageStrategy();
+            case GildedRose.SULFURAS_HAND_OF_RAGNAROS:
+                return new SulfurasStrategy();
             default:
                 throw  new RuntimeException("没有找到！");
         }

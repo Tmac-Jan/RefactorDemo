@@ -12,6 +12,8 @@ public class ItemStrategyBeanFactory {
         switch (itemName) {
             case GildedRose.AGED_BRIE:
                 return new AgedBrieStrategy();
+            case GildedRose.BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT:
+                return new BackstageStrategy();
             default:
                 throw  new RuntimeException("没有找到！");
         }

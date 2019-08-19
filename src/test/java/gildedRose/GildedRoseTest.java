@@ -103,7 +103,7 @@ public class GildedRoseTest {
     assertEquals(10, item.sellIn);
   }
   @Test
-  public void should_return_item_quality_50_And_sellIn_8_when_call_updateQuality_with_quality_49_And_sellIn_11_And_itemName_is_Backstage(){
+  public void should_return_item_quality_50_And_sellIn_8_when_call_updateQuality_with_quality_49_And_sellIn_9_And_itemName_is_Backstage(){
     Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 9, 49) };
     GildedRose app = new GildedRose(items);
     app.updateQuality();

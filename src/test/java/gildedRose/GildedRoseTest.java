@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class GildedRoseTest {
   @Test
-  public void should_return_item_quality_0_And_sellIn_0_when_call_updateQuality_with_quality_1_And_sellIn_1(){
+  public void should_return_item_quality_0_And_sellIn_0_when_call_updateQuality_with_quality_1_And_sellIn_1_And_itemName_is_OtherName(){
     Item[] items = new Item[] { new Item("GioRose", 1, 1) };
     GildedRose app = new GildedRose(items);
     app.updateQuality();
@@ -19,7 +19,7 @@ public class GildedRoseTest {
     assertEquals(0, item.sellIn);
   }
   @Test
-  public void should_return_item_quality_0_And_sellIn_Minus2_when_call_updateQuality_with_quality_2_And_sellIn_Minus1(){
+  public void should_return_item_quality_0_And_sellIn_Minus2_when_call_updateQuality_with_quality_2_And_sellIn_Minus1_And_itemName_is_OtherName(){
     Item[] items = new Item[] { new Item("GioRose", -1, 2) };
     GildedRose app = new GildedRose(items);
     app.updateQuality();
@@ -43,7 +43,7 @@ public class GildedRoseTest {
     assertEquals(0, item.sellIn);
   }
   @Test
-  public void should_return_item_quality_50_And_sellIn_Minus2_when_call_updateQuality_with_quality_49_And_sellIn_Minus1(){
+  public void should_return_item_quality_50_And_sellIn_Minus2_when_call_updateQuality_with_quality_49_And_sellIn_Minus1_And_itemName_is_AgedBrie(){
     Item[] items = new Item[] { new Item("Aged Brie", -1, 49) };
     GildedRose app = new GildedRose(items);
     app.updateQuality();
@@ -55,7 +55,7 @@ public class GildedRoseTest {
     assertEquals(-2, item.sellIn);
   }
   @Test
-  public void should_return_item_quality_50_And_sellIn_Minus2_when_call_updateQuality_with_quality_50_And_sellIn_Minus1(){
+  public void should_return_item_quality_50_And_sellIn_Minus2_when_call_updateQuality_with_quality_50_And_sellIn_Minus1_And_itemName_is_AgedBrie(){
     Item[] items = new Item[] { new Item("Aged Brie", -1, 50) };
     GildedRose app = new GildedRose(items);
     app.updateQuality();
@@ -67,7 +67,7 @@ public class GildedRoseTest {
     assertEquals(-2, item.sellIn);
   }
   @Test
-  public void should_return_item_quality_50_And_sellIn_0_when_call_updateQuality_with_quality_49_And_sellIn_1(){
+  public void should_return_item_quality_50_And_sellIn_0_when_call_updateQuality_with_quality_49_And_sellIn_1_And_itemName_is_AgedBrie(){
     Item[] items = new Item[] { new Item("Aged Brie", 1, 49) };
     GildedRose app = new GildedRose(items);
     app.updateQuality();
@@ -79,7 +79,7 @@ public class GildedRoseTest {
     assertEquals(0, item.sellIn);
   }
   @Test
-  public void should_return_item_quality_50_And_sellIn_0_when_call_updateQuality_with_quality_50_And_sellIn_0(){
+  public void should_return_item_quality_50_And_sellIn_0_when_call_updateQuality_with_quality_50_And_sellIn_0_And_itemName_is_AgedBrie(){
     Item[] items = new Item[] { new Item("Aged Brie", 0, 50) };
     GildedRose app = new GildedRose(items);
     app.updateQuality();

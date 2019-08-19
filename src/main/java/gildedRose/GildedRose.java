@@ -31,7 +31,7 @@ public class GildedRose {
         }
       }
       if (!isSulfuras(item)) {
-        item.sellIn = item.sellIn - 1;
+        decreaseSellIn(item);
       }
 
       if (isSellInSmallerThanZero(item)) {
@@ -45,6 +45,10 @@ public class GildedRose {
         }
       }
     }
+  }
+
+  private void decreaseSellIn(Item item) {
+    item.sellIn -=  1;
   }
 
   private boolean isNotAgeBrieAndNotBackstagePass(Item item) {

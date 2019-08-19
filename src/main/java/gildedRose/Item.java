@@ -8,6 +8,16 @@ public class Item {
 
     public int quality;
 
+    private ItemStrategy itemStrategy;
+
+    public ItemStrategy getItemStrategy() {
+        return itemStrategy;
+    }
+
+    public void setItemStrategy(ItemStrategy itemStrategy) {
+        this.itemStrategy = itemStrategy;
+    }
+
     public Item(String name, int sellIn, int quality) {
         this.name = name;
         this.sellIn = sellIn;

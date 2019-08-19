@@ -10,7 +10,7 @@ package gildedRose;
 public class ItemStrategyBeanFactory {
     public static ItemStrategy getItemStrategy(String itemName){
         switch (itemName) {
-            case "Aged Brie":
+            case GildedRose.AGED_BRIE:
                 return new AgedBrieStrategy();
             default:
                 throw  new RuntimeException("没有找到！");
